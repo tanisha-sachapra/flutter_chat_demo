@@ -27,23 +27,27 @@ class _ChatScreenState extends State<ChatScreen> {
       appBar: AppBar(title: Text('Chat')),
       body: Column(
         children: [
-          // Messages List
           Expanded(
             child: ListView.builder(
               reverse: true,
               itemCount: ablyService.messages.length,
               itemBuilder: (context, index) {
-                final message =
-                    ablyService.messages[ablyService.messages.length - 1 - index];
+                final message = ablyService.messages[
+                    ablyService.messages.length - 1 - index];
                 final isMe = message.senderId == ablyService.clientId;
 
                 return Align(
-                  alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
+                  alignment: isMe
+                      ? Alignment.centerRight
+                      : Alignment.centerLeft,
                   child: Container(
                     padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                    margin:
+                        EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                     decoration: BoxDecoration(
-                      color: isMe ? Colors.blueAccent : Colors.grey.shade300,
+                      color: isMe
+                          ? Colors.blueAccent
+                          : Colors.grey.shade300,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(
@@ -57,13 +61,10 @@ class _ChatScreenState extends State<ChatScreen> {
               },
             ),
           ),
-
-          // Input Field + Send Button
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                // Text Field
                 Expanded(
                   child: TextField(
                     controller: _controller,
@@ -72,14 +73,12 @@ class _ChatScreenState extends State<ChatScreen> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 12),
                     ),
                   ),
                 ),
-
                 SizedBox(width: 8),
-
-                // Send Button
                 IconButton(
                   icon: Icon(Icons.send, color: Colors.blueAccent),
                   onPressed: () => _sendMessage(context),

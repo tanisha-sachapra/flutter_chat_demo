@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Ably Chat App',
-      home: ChatScreen(), // ✅ This now has access to AblyService
+      home: ChatScreen(),
     );
   }
 }
